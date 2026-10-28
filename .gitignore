@@ -1,0 +1,47 @@
+
+# Raremotion Inventory System
+# Git Ignore Configuration
+
+# Virtual environments
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Local databases
+inventory.db
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+
+# Secrets
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# AI assistant configuration
+.agents/
+.claude/
+
+# Editor configuration
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+*.tmp
+
+# Python build and test files
+.pytest_cache/
+.mypy_cache/
+dist/
+build/
+*.egg-info/
