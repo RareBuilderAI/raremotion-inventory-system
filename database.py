@@ -1,5 +1,7 @@
 
+import os
 import sqlite3
+import tempfile
 from pathlib import Path
 
 # ==========================================
@@ -10,8 +12,17 @@ DB_PATH = Path(__file__).resolve().parent / "inventory.db"
 
 
 def get_connection():
+    db_path = DB_PATH
+    if os.environ.get("RAREMOTION_DEMO") == "1":
+        import streamlit as st
+
+        if "demo_db_path" not in st.session_state:
+            # Each visitor gets an empty, disposable database, never business data.
+            demo_dir = Path(tempfile.mkdtemp(prefix="raremotion-demo-"))
+            st.session_state["demo_db_path"] = demo_dir / "demo.db"
+        db_path = st.session_state["demo_db_path"]
     conn = sqlite3.connect(
-        DB_PATH,
+        db_path,
         timeout=10
     )
     conn.execute("PRAGMA foreign_keys = ON")

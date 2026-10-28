@@ -33,7 +33,7 @@ Raremotion Inventory System helps small businesses manage products, monitor stoc
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/raremotion-inventory-system.git
+git clone https://github.com/RareBuilderAI/raremotion-inventory-system.git
 cd raremotion-inventory-system
 ```
 
@@ -81,3 +81,16 @@ Building practical software solutions for modern businesses.
 Version 1.0 — Local MVP
 
 Core inventory and sales functionality implemented and tested locally.
+
+## Public demo deployment
+
+Deploy `demo.py` (not `app.py`) from this repository on Streamlit Community Cloud.
+Use Python 3.14, matching the tested local environment, and the pinned requirements.
+The demo starts with an empty database for each visitor. Add fictional sample
+products to exercise stock changes, sales, analytics, and CSV exports.
+Never upload `inventory.db`, secrets, or private business records.
+
+The demo has no production authentication. Its per-session temporary SQLite files
+are disposable and may disappear on reconnection, restart, or redeployment.
+For local business use, continue to run `streamlit run app.py`; it retains the
+existing local database. The demo entry point does not open that database.

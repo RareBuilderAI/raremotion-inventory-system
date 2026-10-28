@@ -1,4 +1,5 @@
 
+import os
 import sqlite3
 
 import pandas as pd
@@ -246,6 +247,14 @@ st.title("📦 Raremotion Inventory System")
 st.caption(
     "Business Inventory Management | Powered by Raremotion Labs"
 )
+
+if os.environ.get("RAREMOTION_DEMO") == "1":
+    st.warning(
+        "Public demonstration only. Use fictional data. Each visitor has a separate "
+        "temporary database; records can disappear after disconnection, restart, or "
+        "redeployment. This demo has no production authentication and must not be "
+        "used for real business records."
+    )
 
 st.divider()
 
